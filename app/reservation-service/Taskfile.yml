@@ -1,0 +1,25 @@
+version: '3'
+
+vars:
+  PROJECT_DIRECTORY:
+    sh: 'pwd'
+  PROJECT_NAME:
+    sh: 'basename {{.PROJECT_DIRECTORY}}'
+  PROJECT_CONFIG:
+    sh: 'if [ ! -z "$PROJECT_CONFIG" ]; then echo "$PROJECT_CONFIG"; else echo "{{.PROJECT_DIRECTORY}}/etc/config.yml"; fi'
+  PROJECT_BIN_DIRECTORY:
+    sh: 'echo {{.PROJECT_DIRECTORY}}/bin'
+  PROJECT_BIN:
+    sh: 'echo {{.PROJECT_BIN_DIRECTORY}}/app'
+  PROJECT_COMPONENTS:
+    sh: 'echo api background'
+  PG_CONN_STRING:
+    sh: 'echo postgres \"host=localhost port=5433 user=postgres password=postgres dbname=dsportal sslmode=disable\"'
+
+tasks:
+  install:
+    desc: Install required tools
+    cmds:
+      - 'go install github.com/pressly/goose/v3/cmd/goose@v3.21.1'
+      - 'go install github.com/swaggo/swag/cmd/swag@v1.16.3'
+      - 'go install xorm.io/reverse@v0.1.3'
