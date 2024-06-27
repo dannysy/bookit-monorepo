@@ -15,7 +15,6 @@ _dev
 logs
 log
 bin
-pkg
 cache
 run
 dev

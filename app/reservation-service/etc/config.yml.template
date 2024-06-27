@@ -1,0 +1,15 @@
+App:
+  Version: 0.0.1
+  Mode: api
+  IsDebug: true
+  AuthEnabled: false
+Psql:
+  URL: 'postgres://postgres:postgres@localhost:5433/reservation?sslmode=disable'
+  MaxIdleConns: 10
+  MaxOpenConns: 100
+Server:
+  Host: 'localhost'
+  Port: 8084
+Logger:
+  Level: 'trace'
+  Format: 'json'
