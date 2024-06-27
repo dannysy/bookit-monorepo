@@ -41,11 +41,11 @@ _testmain.go
 *.prof
 
 # Configs and etc...
-/.env
-/.prj
-/conf/*.yml
-/conf/*.yaml
-/etc/*.yml
-/etc/*.yaml
-/etc/*.key
-/etc/*.pem
+**.env
+**.prj
+**/conf/*.yml
+**/conf/*.yaml
+**/etc/*.yml
+**/etc/*.yaml
+**/etc/*.key
+**/etc/*.pem
