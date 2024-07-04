@@ -1,0 +1,7 @@
+{
+  "apiUrl": "http://localhost:8084",
+  "authUrl": "http://localhost:8000",
+  "clientId": "0b60aeafad15929087b3",
+  "organizationName": "bookit",
+  "appName": "bookit"
+}

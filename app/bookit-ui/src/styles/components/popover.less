@@ -1,0 +1,32 @@
+@import '~src/styles/vars/sizes';
+
+.@{popover-prefix-cls} {
+  &-arrow {
+    display: none;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.48px;
+    line-height: normal;
+    border-bottom: none;
+    padding: @app-padding-lg @app-padding-lg @app-padding-md;
+
+    &__close {
+      cursor: pointer;
+    }
+  }
+
+  &-inner-content {
+    padding: 0 @app-padding-lg @app-padding-lg;
+    overflow: auto;
+
+    &::-webkit-scrollbar:vertical {
+      width: 4px;
+    }
+  }
+}

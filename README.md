@@ -11,10 +11,9 @@
 
 ---
 **Компоненты системы:**
-* API Gateway
-* IAM service
+* [IAM service](app/iam-service/README.md)
 * [API service](app/reservation-service/README.md)
-* UI
+* [UI](app/bookit-ui/README.md)
 
 ---
 **Контакты:**

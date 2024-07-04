@@ -1,0 +1,30 @@
+@import '~node_modules/ng-zorro-antd/form/style/entry.less';
+@import '~src/styles/vars/sizes';
+
+// form item
+.@{form-item-prefix-cls} {
+  &-feedback-icon {
+    font-size: @app-font-size-lg;
+  }
+
+  &-label {
+    > label {
+      font-weight: @app-font-weight-bold;
+    }
+  }
+
+  &-explain {
+    padding-top: 4px;
+    font-size: @app-font-size-sm;
+    line-height: 1.33;
+  }
+}
+
+.@{form-prefix-cls}-vertical {
+  .@{form-item-prefix-cls} {
+    &-label > label {
+      height: @form-item-label-height;
+      line-height: @app-control-line-height;
+    }
+  }
+}

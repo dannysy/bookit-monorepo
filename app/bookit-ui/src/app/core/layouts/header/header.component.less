@@ -1,0 +1,89 @@
+@import "~/src/styles/vars/sizes";
+@import "~/src/styles/vars/colors";
+@import "~/src/styles/mixins/focus-shadow";
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  gap: @app-gap;
+}
+
+.logo {
+  width: 253px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  img {
+    width: 180px;
+  }
+}
+
+.bar {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  padding: @app-padding-sm;
+  padding-right: @app-padding-xl;
+  justify-content: flex-end;
+  gap: @app-gap;
+}
+
+.logo-mini {
+  display: none;
+}
+
+.faq {
+  padding: calc(@app-padding-xxs * 2);
+  background-color: @gray-5;
+  border-radius: @app-border-radius-base;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &-icon {
+    transition: 0.5s;
+    color: @gray-40;
+    font-size: @icon-size-lg;
+  }
+
+  &:hover {
+    background-color: @black;
+
+    &-icon {
+      transition: 0.5s;
+      color: @white;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  :host {
+    height: auto;
+  }
+  
+  .logo {
+    display: none;
+  }
+
+  .logo-mini {
+    width: 150px;
+    display: block;
+  }
+
+  .bar {
+    padding: @app-padding-md;
+    justify-content: space-between;
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .faq {
+    padding: @app-padding-xs;
+  }
+}

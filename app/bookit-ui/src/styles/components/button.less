@@ -1,0 +1,159 @@
+@import '~node_modules/ng-zorro-antd/button/style/entry.less';
+@import '~src/styles/mixins/focus-shadow';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+.@{btn-prefix-cls} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: @app-font-weight-bold;
+  color: @primary-color;
+  background-color: @primary-color-5;
+  border: 1px solid transparent;
+
+  &:hover,
+  &:active {
+    background: @secondary-color-5;
+    border-color: transparent;
+    color: @secondary-color;
+  }
+
+  &:focus {
+    color: @primary-color;
+    background-color: @primary-color-5;
+    border-color: @primary-color-30;
+    box-shadow: 0 0 0 2px @primary-color-30;
+  }
+
+  &-primary {
+    background-color: @primary-color;
+    color: @white;
+
+    &:hover,
+    &:active {
+      background: @secondary-color;
+      color: @white;
+    }
+
+    &:focus {
+      color: @white;
+      background-color: @primary-color;
+      border-color: @primary-color-30;
+    }
+  }
+
+  &-dashed {
+    border-color: @primary-color-30;
+
+    &:hover,
+    &:active {
+      border-color: @secondary-color;
+    }
+
+    &:focus {
+      border-color: @secondary-color;
+    }
+
+    &[disabled] {
+      border-color: @gray-40;
+      background-color: @gray-5;
+
+      &:hover {
+        border-color: @gray-40;
+      }
+    }
+  }
+
+  &-text {
+    color: @gray-80;
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+      &:focus {
+      background-color: transparent;
+      border-color: transparent;
+      .focus-shadow(2px; @primary-color-30)
+    }
+
+    &:active {
+      border-color: transparent;
+    }
+
+    &[disabled] {
+      background-color: transparent;
+    }
+
+    &[ant-click-animating-without-extra-node='true']::after {
+      content: none;
+    }
+
+    &.@{btn-prefix-cls}-dangerous {
+      &:focus {
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &-link {
+    background-color: transparent;
+    animation: none;
+
+    &:hover,
+    &:active {
+      background-color: transparent;
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    &[disabled] {
+      background-color: transparent;
+    }
+
+    &[ant-click-animating-without-extra-node='true']::after {
+      content: none;
+    }
+  }
+
+  &-icon-only.@{btn-prefix-cls} {
+    font-size: 24px;
+
+    & > * {
+      font-size: inherit;
+    }
+
+    &-sm {
+      font-size: 20px;
+    }
+
+    &-lg {
+      font-size: 32px;
+    }
+
+    & span:not(:first-child) {
+      display: none;
+    }
+  }
+
+  > .@{iconfont-css-prefix} + span,
+  > span + .@{iconfont-css-prefix} {
+    //icon size
+    font-size: 24px;
+    margin-left: 4px;
+
+    & svg {
+      vertical-align: bottom;
+    }
+  }
+}

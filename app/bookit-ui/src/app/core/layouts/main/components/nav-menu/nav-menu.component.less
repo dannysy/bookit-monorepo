@@ -1,0 +1,114 @@
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+:host {
+  padding: @app-padding-lg 0;
+  gap: @app-gap;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 253px;
+}
+
+.nav-item {
+  display: flex;
+  padding: 0 @app-padding-lg;
+  align-items: center;
+  align-self: stretch;
+  gap: @app-gap-sm;
+  cursor: pointer;
+  position: relative;
+
+  &.disabled {
+    pointer-events: none;
+
+    .icon {
+      color: @gray-20;
+    }
+
+    .label {
+      color: @gray-20;
+    }
+  }
+
+  .icon {
+    color: @gray-50;
+    font-size: @icon-size-md;
+  }
+  
+  .label {
+    color: @gray-60;
+    font-size: @app-font-size-md;
+    font-weight: 600;
+    transition: .5s;
+  }
+
+  ::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 0;
+    border-radius: 0px 20px 20px 0px;
+    background: @primary-color;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &.active {
+    ::before {
+      opacity: 1;
+    }
+
+    .icon {
+      color: @primary-color;
+    }
+
+    .label {
+      color: @primary-color;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  :host {
+    width: 100%;
+    flex-direction: row;
+    padding: @app-padding-lg;
+    gap: 0px;
+    justify-content: space-between;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+
+  .nav-item {
+    padding: @app-padding-xs @app-padding-xs;
+    border-radius: @app-border-radius-base;
+    gap: 0;
+    transition: 0.5s;
+
+    .icon {
+      font-size: @icon-size-lg;
+      transition: 0.5s;
+    }
+
+    .label {
+      display: none;
+    }
+
+    ::before {
+      display: none;
+      content: none;
+    }
+
+    &.active {
+      background-color: @primary-color;
+      gap: @app-gap-sm;
+
+      .icon {
+        color: @white;
+      }
+    }
+  }
+}

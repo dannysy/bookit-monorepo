@@ -1,0 +1,120 @@
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+.treeFn(@custom-tree-prefix-cls) {
+  @custom-tree-node-prefix-cls: ~'@{custom-tree-prefix-cls}-treenode';
+
+  color: @black;
+
+  &--flat {
+    .@{tree-prefix-cls}-switcher {
+      display: none;
+    }
+  }
+
+  .@{tree-prefix-cls}-switcher {
+    height: @icon-size-md;
+  }
+
+  .@{tree-prefix-cls}-switcher-icon,
+  .@{select-tree-prefix-cls}-switcher-icon {
+    font-size: @icon-size-md;
+  }
+
+  .@{custom-tree-node-prefix-cls} {
+    padding: 0;
+
+    &:not(:last-child) {
+      padding-bottom: @app-padding-sm;
+    }
+
+    &-disabled {
+      .@{custom-tree-prefix-cls}-node-content-wrapper {
+        .@{custom-tree-prefix-cls}-iconEle {
+          color: inherit;
+        }
+
+        &:hover {
+          .@{custom-tree-prefix-cls}-iconEle {
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+
+  &-indent {
+    &-unit {
+      width: @app-padding-xl;
+    }
+  }
+
+  &-checkbox {
+    margin: ((@tree-title-height - @checkbox-size) / 2) 6px 0 8px;
+  }
+
+  & &-node-content-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+
+    .@{tree-prefix-cls}-iconEle {
+      font-size: @icon-size-md;
+      width: @icon-size-md;
+      height: @icon-size-md;
+      transition: color 0.5s ease;
+      color: @primary-color;
+      margin-right: 4px;
+
+      &:hover {
+        color: @secondary-color;
+      }
+    }
+
+    .@{tree-prefix-cls}-title {
+      padding-right: 8px;
+      padding-left: 2px;
+      flex: 1;
+    }
+
+    .@{tree-prefix-cls}-actions {
+      display: inline-flex;
+      align-items: center;
+      column-gap: @app-padding-sm;
+      flex: 0 0 auto;
+
+      .ant-btn-icon-only.ant-btn {
+        width: 20px;
+        height: 20px;
+        padding: 0;
+        color: @gray-50;
+
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+
+    .@{tree-prefix-cls}-info {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+
+      .ant-btn-icon-only.ant-btn {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        padding: 0;
+
+        &:hover {
+          color: @primary-color;
+        }
+
+        &.ant-btn-text:not(:hover) {
+          color: @gray-50;
+        }
+      }
+    }
+  }
+}

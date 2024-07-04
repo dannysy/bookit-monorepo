@@ -53,4 +53,4 @@ tasks:
     desc: Stop local test environment
     cmds:
       - docker stop reservation-pg
-      - docker network rm reservation
+      - docker network rm reservation || true

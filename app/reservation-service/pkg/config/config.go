@@ -8,6 +8,7 @@ import (
 	"github.com/ztrue/tracerr"
 
 	"bookit/pkg/database"
+	"bookit/pkg/iam"
 	"bookit/pkg/logger"
 	"bookit/pkg/server"
 )
@@ -18,6 +19,7 @@ var flags = []string{"config", "envPrefix"}
 
 type Config struct {
 	App      App                  `mapstructure:"App"`
+	Iam      iam.CasdoorConfig    `mapstructure:"Casdoor"`
 	Database database.PgEntConfig `mapstructure:"Psql"`
 	Logger   logger.Config        `mapstructure:"Logger"`
 	Server   server.FiberConfig   `mapstructure:"Server"`

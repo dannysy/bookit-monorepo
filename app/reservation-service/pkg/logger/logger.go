@@ -10,7 +10,7 @@ import (
 	"github.com/ztrue/tracerr"
 )
 
-const CtxLoggerKey = "logger"
+type ctxLogger struct{}
 
 var gist *zerolog.Logger
 
@@ -20,7 +20,7 @@ type Config struct {
 }
 
 func Gist(ctx context.Context) *zerolog.Logger {
-	logger, ok := ctx.Value(CtxLoggerKey).(*zerolog.Logger)
+	logger, ok := ctx.Value(ctxLogger{}).(*zerolog.Logger)
 	if ok {
 		return logger
 	}
@@ -31,6 +31,10 @@ func Gist(ctx context.Context) *zerolog.Logger {
 		return &lg
 	}
 	return gist
+}
+
+func WithCtx(ctx context.Context, lg *zerolog.Logger) context.Context {
+	return context.WithValue(ctx, ctxLogger{}, lg)
 }
 
 func New(conf Config) *zerolog.Logger {

@@ -1,0 +1,10 @@
+<div appCard class="logo" [routerLink]="['/']">
+  <img src="/assets/images/logo.svg" alt="logo">
+</div>
+<div appCard class="bar">
+  <div class="faq" [routerLink]="['faq']">
+    <span class="faq-icon" nz-icon nzTheme="outline" nzType="message-question"></span>
+  </div>
+  <img class="logo-mini" src="/assets/images/logo.svg" [routerLink]="['/']" alt="logo-mini">
+  <app-user-miniature fullName="Гудков Максим" avatarUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Jason_Statham_2018.jpg/640px-Jason_Statham_2018.jpg"></app-user-miniature>
+</div>

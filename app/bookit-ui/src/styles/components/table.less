@@ -1,0 +1,113 @@
+@import '~node_modules/ng-zorro-antd/table/style/entry.less';
+@import '~src/styles/themes/base.less';
+@import '~src/styles/vars/sizes';
+
+.@{table-prefix-cls} {
+  line-height: 1.44;
+  color: @gray-70;
+
+  &-thead {
+    th.ant-table-column {
+      &-sort::before {
+        background-color: @table-header-cell-split-color !important;
+      }
+
+      &-has-sorters:hover::before {
+        background-color: @table-header-cell-split-color !important;
+      }
+    }
+
+    > tr {
+      > th {
+        font-weight: @app-font-weight-bold;
+        color: @gray-70;
+        background: @white;
+      }
+    }
+  }
+
+  &-tbody {
+    > tr {
+      > td {
+        vertical-align: top;
+      }
+    }
+  }
+
+  &-header {
+    overflow-y: auto;
+  }
+
+  &-column-title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex: 0 1 auto;
+    position: initial;
+  }
+
+  &-column-sorters {
+    justify-content: flex-start;
+  }
+
+  &-column-sorter {
+    margin-left: 8px;
+    width: 20px;
+    color: @gray-50;
+
+    &-up,
+    &-down {
+      font-size: @app-font-size-md;
+    }
+
+    &-up + &-down {
+      margin-top: -0.45em;
+    }
+  }
+
+  &-filter-trigger {
+    margin: 0 0 0 8px;
+    font-size: @app-font-size-md;
+    padding: 0;
+  }
+
+  &-body {
+    overflow: auto;
+    padding-bottom: 4px;
+  }
+
+  &-filter-dropdown {
+    &-btns {
+      border-bottom-left-radius: @app-border-radius-base;
+      border-bottom-right-radius: @app-border-radius-base;
+    }
+
+    .@{dropdown-prefix-cls} {
+      &-menu {
+        padding: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  .nz-table-hide-scrollbar {
+    &::-webkit-scrollbar {
+      width: 8px;
+      background-color: @table-header-bg;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: @table-header-bg;
+      border-radius: 99px;
+    }
+  }
+}
+
+.@{table-prefix-cls}.@{table-prefix-cls}-small {
+  .nz-table-hide-scrollbar {
+    &::-webkit-scrollbar {
+      background-color: @table-header-bg;
+    }
+  }
+}

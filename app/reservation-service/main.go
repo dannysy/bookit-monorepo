@@ -8,6 +8,19 @@ import (
 	_ "github.com/lib/pq"
 )
 
+// main команда запуска go run main.go -config ./etc/config.yml
+//
+//	@title						Reservation REST API
+//	@version					1.0
+//
+//	@host						localhost:8084
+//	@schemes					http
+//
+//	@BasePath					/v1
+//
+//	@securityDefinitions.apikey	AccessToken
+//	@in							header
+//	@name						authorization
 func main() {
 	cfg := config.New()
 	log := logger.New(cfg.Logger)

@@ -1,0 +1,95 @@
+@import '~node_modules/ng-zorro-antd/modal/style/entry.less';
+@import '~src/styles/vars/sizes';
+@import '~src/styles/vars/colors';
+
+.@{dialog-prefix-cls} {
+  min-width: 592px;
+
+  &-title {
+    font-weight: @app-font-weight-bold;
+  }
+
+  &-close {
+    &-x {
+      font-size: @app-font-size-xl;
+      margin-right: 4px;
+      line-height: 71px;
+    }
+  }
+
+  &-body {
+    font-size: @app-font-size-lg;
+    color: @gray-60;
+    line-height: 1.38;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 @app-padding-lg @app-padding-lg;
+
+    .@{ant-prefix}-btn + .@{ant-prefix}-btn:not(.@{ant-prefix}-dropdown-trigger) {
+      margin-left: 0;
+    }
+
+    button {
+      &:last-child {
+        order: 1;
+      }
+
+      &:first-child {
+        order: 2;
+        margin-left: @app-padding-md;
+      }
+    }
+  }
+}
+
+.@{confirm-prefix-cls} {
+  &-body-wrapper {
+    padding: @app-padding-lg 0 8px 0;
+
+    .@{confirm-prefix-cls}-btns {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: @app-padding-md;
+
+      .@{ant-prefix}-btn + .@{ant-prefix}-btn {
+        margin-bottom: 0;
+        margin-left: 0;
+      }
+
+      button {
+        &:last-child {
+          order: 1;
+        }
+
+        &:first-child {
+          order: 2;
+          margin-left: @app-padding-md;
+        }
+      }
+    }
+  }
+
+  &-body {
+    > .@{iconfont-css-prefix} {
+      font-size: 20px;
+    }
+
+    .@{confirm-prefix-cls}-title {
+      line-height: 1;
+      font-size: 20px;
+      color: @gray-70;
+      font-weight: @app-font-weight-bold;
+    }
+
+    .@{confirm-prefix-cls}-content {
+      margin-top: 16px;
+      font-size: @app-font-size-lg;
+      color: @gray-60;
+      line-height: 1.38;
+    }
+  }
+}
+

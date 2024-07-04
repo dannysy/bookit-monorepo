@@ -1,0 +1,40 @@
+@import '~node_modules/ng-zorro-antd/calendar/style/entry.less';
+@import '~node_modules/ng-zorro-antd/date-picker/style/entry.less';
+@import '~src/styles/mixins/focus-shadow';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+.@{calendar-prefix-cls} {
+  padding: 24px;
+
+  &-date {
+    border: 1px solid transparent;
+    line-height: 22px !important;
+
+    &-today {
+      &::before {
+        background-color: @primary-color;
+      }
+
+      .@{calendar-prefix-cls}-date-value {
+        color: @white;
+        position: relative;
+        z-index: 2;
+      }
+
+    }
+  }
+
+  .@{picker-prefix-cls} {
+    &-cell-selected {
+      .@{calendar-prefix-cls} {
+        &-date {
+          background: transparent !important;
+          border: 1px solid @primary-color;
+          color: @black !important;
+        }
+      }
+    }
+  }
+
+}

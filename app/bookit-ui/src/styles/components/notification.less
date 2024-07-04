@@ -1,0 +1,46 @@
+@import '~node_modules/ng-zorro-antd/notification/style/entry.less';
+@import '~src/styles/vars/sizes';
+@import '~src/styles/vars/colors';
+
+@notification-width: 592px;
+
+.@{notification-prefix-cls} {
+  &-notice {
+    &-message {
+      color: @text-color;
+      font-size: 20px;
+      line-height: 1.4;
+      font-weight: @app-font-weight-bold;
+    }
+
+    &-with-icon &-message {
+      margin-bottom: 8px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    &-close {
+      top: 21px;
+      color: @gray-70;
+      font-size: 24px;
+    }
+
+    &-description {
+      font-size: @font-size-lg;
+      color: @gray-70;
+      line-height: 1.38;
+    }
+
+    &-with-icon &-description {
+      margin-left: 48px;
+      font-size: @font-size-lg;
+      line-height: 1.38;
+    }
+
+    &-btn {
+      .ant-btn-primary {
+        margin-right: 12px;
+      }
+    }
+  }
+}

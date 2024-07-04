@@ -1,0 +1,66 @@
+basePath: /v1
+host: localhost:8084
+info:
+  contact: {}
+  title: Reservation REST API
+  version: "1.0"
+paths:
+  /healthz:
+    get:
+      operationId: health
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+      summary: Проверка работоспособности
+      tags:
+      - app
+  /panic:
+    get:
+      operationId: panic
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+      summary: Проверка panic-recovery
+      tags:
+      - app
+  /version:
+    get:
+      operationId: version
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+      summary: Получить версию приложения
+      tags:
+      - app
+schemes:
+- http
+securityDefinitions:
+  AccessToken:
+    in: header
+    name: authorization
+    type: apiKey
+swagger: "2.0"

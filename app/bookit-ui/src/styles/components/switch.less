@@ -1,0 +1,73 @@
+@import '~node_modules/ng-zorro-antd/switch/style/entry.less';
+@import '~src/styles/mixins/focus-shadow';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+.@{switch-prefix-cls} {
+  background-image: linear-gradient(to right, @gray-10, @gray-10),
+  linear-gradient(to right, @component-background, @component-background);
+
+  &:focus {
+    .focus-shadow(1px, @primary-color-30);
+
+    &:hover {
+      .focus-shadow(1px, @primary-color-30);
+    }
+  }
+
+  &:hover {
+    .focus-shadow(1px, @primary-color);
+  }
+
+  &-handle {
+    &::before {
+      box-shadow: none;
+    }
+  }
+
+  &-checked {
+    background: @primary-color;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &-checked:focus {
+    .focus-shadow(1px, @primary-color-30);
+  }
+
+  &-loading,
+  &-disabled {
+    &:hover,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &-disabled {
+    background-image: linear-gradient(to right, @gray-30, @gray-30),
+    linear-gradient(to right, @component-background, @component-background);
+  }
+
+  &-loading-icon.@{iconfont-css-prefix} {
+    font-size: 10px;
+    top: 1px;
+    color: @gray-20;
+  }
+
+  &-checked &-loading-icon {
+    color: @switch-color;
+  }
+
+  &-small {
+    .@{switch-prefix-cls}-loading-icon {
+      top: 1.5px;
+      font-size: 7px;
+    }
+  }
+
+  .ant-click-animating-node {
+    display: none;
+  }
+}

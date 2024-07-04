@@ -1,0 +1,39 @@
+@import '~node_modules/ng-zorro-antd/collapse/style/entry.less';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+.@{collapse-prefix-cls} {
+  font-size: @app-font-size-md;
+
+  &-borderless > &-item > &-header {
+    font-weight: @app-font-weight-bold;
+    font-size: @app-font-size-base;
+  }
+
+  &-icon-position-right {
+    & > .@{collapse-prefix-cls}-item {
+      & > .@{collapse-prefix-cls}-header {
+        .@{collapse-prefix-cls}-arrow {
+          right: 0;
+        }
+      }
+
+      &-active:not(&-disabled) {
+        & > .@{collapse-prefix-cls}-header {
+          .@{collapse-prefix-cls}-arrow {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  & > &-item {
+    > .@{collapse-prefix-cls}-header {
+      .@{collapse-prefix-cls}-arrow {
+        font-size: @app-font-size-lg;
+      }
+    }
+  }
+}
+

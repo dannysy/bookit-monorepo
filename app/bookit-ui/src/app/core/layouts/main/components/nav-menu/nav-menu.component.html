@@ -1,0 +1,9 @@
+<div 
+  *ngFor="let item of items"
+  class="nav-item" 
+  [routerLink]="item.routerLink"
+  routerLinkActive="active"
+  [class.disabled]="item.disabled">
+  <span class="icon" nz-icon nzTheme="outline" [nzType]="item.icon"></span>
+  <span class="label"> {{ item.label }}</span>
+</div>

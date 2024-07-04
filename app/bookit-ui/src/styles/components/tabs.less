@@ -1,0 +1,82 @@
+@import '~node_modules/ng-zorro-antd/tabs/style/entry.less';
+@import '~src/styles/vars/sizes';
+@import '~src/styles/vars/colors';
+
+.@{tab-prefix-cls} {
+  &-editable {
+    height: 100%;
+
+    .@{tab-prefix-cls} {
+      &-content {
+        height: 100%;
+      }
+
+      &-nav {
+        margin: 0 !important;
+        background-color: @gray-10;
+        border-radius: @app-border-radius-base @app-border-radius-base 0 0;
+
+        &-wrap {
+          flex: 1 !important;
+        }
+
+        &-add {
+          background-color: transparent !important;
+          border: none !important;
+        }
+      }
+
+      &-tab {
+        background-color: transparent !important;
+        min-width: 236px;
+        border: none !important;
+        padding: 7px 10px !important;
+        margin: 0 !important;
+
+        &:hover {
+          color: @black;
+        }
+
+        &-btn {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        &-remove {
+          color: @black;
+        }
+
+        &-active {
+          background-color: @white !important;
+
+          & .@{tab-prefix-cls}-tab-btn {
+            color: @black;
+          }
+        }
+      }
+    }
+  }
+
+  &-tab {
+    &&-active &-btn {
+      text-shadow: none;
+    }
+  }
+
+  &-top,
+  &-bottom {
+    flex-direction: column;
+
+    > .@{tab-prefix-cls}-nav,
+    > div > .@{tab-prefix-cls}-nav {
+      &::before {
+        content: none;
+      }
+    }
+
+    .@{tab-prefix-cls}-ink-bar {
+      border-radius: 2px;
+    }
+  }
+}

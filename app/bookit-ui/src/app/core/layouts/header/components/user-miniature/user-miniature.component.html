@@ -1,0 +1,16 @@
+<ng-container *ngIf="currentUser$ | async as user">
+  <div nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" class="user-miniature">
+    <div class="avatar-container" [appSkeleton]="!photoLoaded()" width="0px">
+      <img [src]="user.avatar | appEmptyPhoto" (load)="photoLoaded.set(true)" alt="User Avatar" class="avatar">
+    </div>
+    <span class="full-name">{{ user.name }}</span>
+  </div>
+</ng-container>
+
+
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item (click)="onLogoutClick()">Выйти из аккаунта</li>
+  </ul>
+</nz-dropdown-menu>

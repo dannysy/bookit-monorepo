@@ -1,0 +1,51 @@
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+::-webkit-scrollbar {
+  width: @scroll-bar-width;
+  height: @scroll-bar-width;
+  background: transparent;
+}
+
+::-webkit-scrollbar:vertical{
+  width: @scroll-bar-width;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: @gray-30;
+  border-radius: @scroll-bar-width / 2;
+}
+
+::-webkit-scrollbar-track-piece {
+  display:none;
+}
+
+body {
+  background-color: @backgroud-color;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes loading {
+  from {
+    background-color: @gray;
+  }
+
+  to {
+    background-color: @gray-10;
+  }
+}
+
+.skeleton {
+  animation: loading .5s infinite alternate;
+  > * {
+    opacity: 0;
+  }
+}

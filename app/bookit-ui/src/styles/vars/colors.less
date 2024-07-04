@@ -1,0 +1,97 @@
+@import 'theme';
+@import '~src/styles/themes/@{themeDir}/vars/colors';
+
+:root {
+  .tintShadeColors(@color-name) {
+    --@{color-name}-5: tint(@@color-name, 90%);
+    --@{color-name}-10: tint(@@color-name, 80%);
+    --@{color-name}-15: tint(@@color-name, 70%);
+    --@{color-name}-20: tint(@@color-name, 60%);
+    --@{color-name}-30: tint(@@color-name, 40%);
+    --@{color-name}-40: tint(@@color-name, 20%);
+    --@{color-name}-50: @@color-name;
+    --@{color-name}-60: shade(@@color-name, 20%);
+    --@{color-name}-70: shade(@@color-name, 40%);
+    --@{color-name}-80: shade(@@color-name, 60%);
+    --@{color-name}-90: shade(@@color-name, 80%);
+  }
+  .tintShadeColors(primary-color);
+  .tintShadeColors(secondary-color);
+  .tintShadeColors(red);
+  .tintShadeColors(green);
+  .tintShadeColors(gray);
+  .tintShadeColors(yellow);
+  .tintShadeColors(orange);
+}
+
+@primary-color-5: var(--primary-color-5);
+@primary-color-10: var(--primary-color-10);
+@primary-color-15: var(--primary-color-15);
+@primary-color-20: var(--primary-color-20);
+@primary-color-30: var(--primary-color-30);
+@primary-color-40: var(--primary-color-40);
+@primary-color-50: var(--primary-color-50);
+@primary-color-60: var(--primary-color-60);
+@primary-color-70: var(--primary-color-70);
+@primary-color-80: var(--primary-color-80);
+@primary-color-90: var(--primary-color-90);
+
+@secondary-color-5: var(--secondary-color-5);
+@secondary-color-10: var(--secondary-color-10);
+@secondary-color-15: var(--secondary-color-15);
+@secondary-color-20: var(--secondary-color-20);
+@secondary-color-30: var(--secondary-color-30);
+@secondary-color-40: var(--secondary-color-40);
+@secondary-color-50: var(--secondary-color-50);
+@secondary-color-60: var(--secondary-color-60);
+@secondary-color-70: var(--secondary-color-70);
+@secondary-color-80: var(--secondary-color-80);
+@secondary-color-90: var(--secondary-color-90);
+
+@red-5: var(--red-5);
+@red-10: var(--red-10);
+@red-15: var(--red-15);
+@red-20: var(--red-20);
+@red-30: var(--red-30);
+@red-40: var(--red-40);
+@red-50: var(--red-50);
+@red-60: var(--red-60);
+@red-70: var(--red-70);
+@red-80: var(--red-80);
+@red-90: var(--red-90);
+
+@green-5: var(--green-5);
+@green-10: var(--green-10);
+@green-15: var(--green-15);
+@green-20: var(--green-20);
+@green-30: var(--green-30);
+@green-40: var(--green-40);
+@green-50: var(--green-50);
+@green-60: var(--green-60);
+@green-70: var(--green-70);
+@green-80: var(--green-80);
+@green-90: var(--green-90);
+
+@gray-5: var(--gray-5);
+@gray-10: var(--gray-10);
+@gray-15: var(--gray-15);
+@gray-20: var(--gray-20);
+@gray-30: var(--gray-30);
+@gray-40: var(--gray-40);
+@gray-50: var(--gray-50);
+@gray-60: var(--gray-60);
+@gray-70: var(--gray-70);
+@gray-80: var(--gray-80);
+@gray-90: var(--gray-90);
+
+@yellow-5: var(--yellow-5);
+@yellow-10: var(--yellow-10);
+@yellow-15: var(--yellow-15);
+@yellow-20: var(--yellow-20);
+@yellow-30: var(--yellow-30);
+@yellow-40: var(--yellow-40);
+@yellow-50: var(--yellow-50);
+@yellow-60: var(--yellow-60);
+@yellow-70: var(--yellow-70);
+@yellow-80: var(--yellow-80);
+@yellow-90: var(--yellow-90);

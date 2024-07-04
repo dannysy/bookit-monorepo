@@ -6,7 +6,8 @@
 # IDE
 .project
 .settings
-.idea
+**.vscode
+**.idea
 
 # Folders
 _obj

@@ -1,0 +1,26 @@
+@import '~node_modules/ng-zorro-antd/page-header/style/entry.less';
+@import '~src/styles/vars/sizes';
+
+.@{pageheader-prefix-cls} {
+  &-heading {
+    &-title {
+      margin-right: 6px;
+      font-weight: @app-font-weight-bold;
+      white-space: normal;
+      width: 100%;
+    }
+
+    &-tags {
+      align-self: flex-start;
+      line-height: 32px;
+    }
+
+    &-extra {
+      align-self: center;
+    }
+  }
+
+  &-compact &-heading {
+    flex-wrap: nowrap;
+  }
+}

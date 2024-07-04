@@ -1,0 +1,85 @@
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+@import '~src/styles/mixins/focus-shadow';
+
+.checkboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-checkbox') {
+  @checkbox-inner-prefix-cls: ~'@{checkbox-prefix-cls}-inner';
+
+  .@{checkbox-prefix-cls} {
+    top: 0;
+
+    &-wrapper {
+      align-items: center;
+    }
+
+    &-input:focus + &-inner {
+      border-color: @checkbox-color;
+      .focus-shadow(2px, @primary-color-30);
+    }
+
+    &-inner {
+      @check-width: (@checkbox-size / 14) * 5px;
+      @check-height: (@checkbox-size / 14) * 8px;
+
+      &::after, &::before {
+        content: "";
+        position: absolute;
+        top: 74%;
+        left: 11%;
+        border: none;
+        width: @check-height;
+        height: 1px;
+        background-color: @white;
+        border-radius: @border-radius-base;
+        transform: scale(0);
+        transition: all 0.1s @ease-in-back, opacity 0.1s;
+      }
+
+      &::before {
+        width: @check-width;
+        top: 63%;
+        left: 11%;
+        transform: rotate(40deg) scale(0);
+        opacity: 0;
+      }
+    }
+  }
+
+  .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}::after,
+  .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}::before {
+    border: none;
+    transform: rotate(130deg) scale(1) translate(-50%, -50%);
+    transition: rotate 0.2s @ease-out-back 0.1s, scale 0.2s @ease-out-back 0.1s, translate 0.2s @ease-out-back 0.1s;
+    opacity: 1;
+  }
+
+  .@{checkbox-prefix-cls}-checked .@{checkbox-inner-prefix-cls}::before {
+    transform: rotate(40deg) scale(1);
+  }
+
+  .@{checkbox-prefix-cls}-disabled {
+    .@{checkbox-inner-prefix-cls} {
+      background-color: @gray-15;
+      border-color: transparent !important;
+    }
+
+    &.@{checkbox-prefix-cls}-checked {
+      .@{checkbox-inner-prefix-cls} {
+        background-color: @gray-30;
+        border-color: transparent !important;
+      }
+    }
+  }
+
+  .@{checkbox-prefix-cls}-indeterminate {
+    .@{checkbox-inner-prefix-cls} {
+      background-color: @checkbox-check-bg;
+      border-color: @primary-color;
+    }
+
+    &.@{checkbox-prefix-cls}-disabled .@{checkbox-inner-prefix-cls}::after {
+      background-color: @disabled-color;
+      border-color: @disabled-color;
+    }
+  }
+}

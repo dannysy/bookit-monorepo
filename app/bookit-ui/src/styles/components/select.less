@@ -1,0 +1,86 @@
+@import '~node_modules/ng-zorro-antd/select/style/entry.less';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+@import '~src/styles/mixins/focus-shadow';
+
+.@{select-prefix-cls} {
+  font-size: @app-font-size-md;
+  line-height: @app-control-line-height;
+  color: @gray-70;
+
+  & > .@{select-prefix-cls}-arrow > span > svg {
+    font-size: @select-arrow-size;
+  }
+
+  &:not(&-customize-input) &-selector {
+    border-radius: @select-radius;
+    min-height: @select-height;
+    min-width: @select-min-width;
+    box-shadow: @select-box-shadow;
+
+    .@{select-prefix-cls}-focused:not(.@{select-prefix-cls}-disabled)& {
+      //& when (@theme = variable)
+      box-shadow: 0 0 0 3px @primary-color-5, @select-box-shadow;
+      border-color: transparent;
+    }
+  }
+
+  &-multiple {
+    .@{select-prefix-cls}-selection-item {
+      border-radius: @select-selection-item-radius;
+      border: 1px solid @gray-15;
+    }
+  }
+
+  &-item {
+    font-size: @app-font-size-md;
+    height: @select-item-height;
+    color: @gray-60;
+
+    &-option {
+      &-state {
+        display: none;
+      }
+
+      &-active:not(&-disabled) {
+        color: @secondary-color;
+      }
+    }
+  }
+}
+
+.@{select-prefix-cls}-single {
+  .@{select-prefix-cls}-selector {
+    .@{select-prefix-cls}-selection-item,
+    .@{select-prefix-cls}-selection-placeholder {
+      line-height: @select-height;
+    }
+  }
+
+  &:not(.@{select-prefix-cls}-customize-input) {
+    .@{select-prefix-cls}-selector {
+      height: @select-height;
+    }
+  }
+}
+
+.cdk-overlay-pane {
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar:vertical{
+    width: 8px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: @gray-30;
+    border-radius: 99px;
+  }
+}

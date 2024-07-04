@@ -3,6 +3,13 @@ App:
   Mode: api
   IsDebug: true
   AuthEnabled: false
+Casdoor:
+  ClientId: 'reservation'
+  ClientSecret: 'reservation-secret'
+  Cert: ''
+  Url: 'http://localhost:8000'
+  Organization: 'ds'
+  Application: 'bookit'
 Psql:
   URL: 'postgres://postgres:postgres@localhost:5433/reservation?sslmode=disable'
   MaxIdleConns: 10

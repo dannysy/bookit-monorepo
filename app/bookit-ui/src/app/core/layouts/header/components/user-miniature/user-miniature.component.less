@@ -1,0 +1,46 @@
+@import '~/src/styles/vars/sizes';
+
+@avatar-size: 40px;
+
+.user-miniature {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+}
+x
+.avatar {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+
+  &-container {
+    width: @avatar-size;
+    height: @avatar-size;
+    border-radius: @avatar-size;
+    overflow: hidden;
+  }
+}
+
+.full-name {
+  color: @black;
+  font-size: @app-font-size-md;
+  font-weight: 600;
+}
+
+@media (max-width: 576px) {
+  @avatar-size: 36px;
+
+  .full-name {
+    display: none;
+  }
+
+  .avatar {
+    &-container {
+      width: @avatar-size;
+      height: @avatar-size;
+      border-radius: @avatar-size;
+    }
+  }
+}

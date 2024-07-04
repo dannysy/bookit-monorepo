@@ -1,0 +1,50 @@
+@import '~node_modules/ng-zorro-antd/dropdown/style/entry.less';
+@import '~src/styles/mixins/focus-shadow';
+@import '~src/styles/vars/sizes';
+
+.@{dropdown-prefix-cls} {
+  &-trigger {
+    & > button {
+      font-weight: @app-font-weight;
+
+      &:hover,
+      &:focus {
+        color: @text-color;
+      }
+
+      &:focus {
+        .focus-shadow(2px, @primary-color-30);
+      }
+
+      &:active {
+        color: @primary-color;
+        border-color: @primary-color;
+      }
+
+      & > .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
+        font-size: 16px;
+        vertical-align: -3px;
+        margin-left: 6px;
+      }
+    }
+  }
+
+  &-menu {
+    padding: 0;
+    border-radius: @app-border-radius-base;
+    overflow: hidden;
+
+    &-item,
+    &-submenu-title {
+      padding: @app-padding-sm;
+
+      &-divider {
+        margin: 1.5px 0;
+      }
+
+      &--active {
+        color: @primary-color;
+      }
+    }
+  }
+}

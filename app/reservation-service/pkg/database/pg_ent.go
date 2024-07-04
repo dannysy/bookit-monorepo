@@ -10,6 +10,8 @@ import (
 	"bookit/pkg/logger"
 )
 
+var gist *ent.Client
+
 type PgEntConfig struct {
 	URL          string `mapstructure:"URL"`
 	MaxOpenConns int    `mapstructure:"MaxOpenConns"`
@@ -18,6 +20,13 @@ type PgEntConfig struct {
 
 type PgEnt struct {
 	*ent.Client
+}
+
+func Gist() *ent.Client {
+	if gist == nil {
+		panic(tracerr.New("database connection not initialized"))
+	}
+	return gist
 }
 
 func NewPgEnt(cfg PgEntConfig) *PgEnt {
@@ -36,7 +45,7 @@ func NewPgEnt(cfg PgEntConfig) *PgEnt {
 	); err != nil {
 		logger.Gist(ctx).Fatal().Err(tracerr.Wrap(err)).Msg("failed creating schema resources")
 	}
-
+	gist = client
 	return &PgEnt{
 		Client: client,
 	}

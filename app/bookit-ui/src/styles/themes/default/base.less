@@ -1,0 +1,273 @@
+@import '~node_modules/ng-zorro-antd/style/themes/default';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+@success-color: @green-5;
+@warning-color: @yellow-5;
+@error-color: @red-50;
+@processing-color: @primary-color-5;
+@primary-color: @red;
+
+//text
+@text-color-secondary: @secondary-color;
+@success-color: @green;
+@warning-color: @orange;
+@disabled-color: @gray;
+@border-radius-base: @app-border-radius-base;
+@primary-color-hover: @primary-color-60;
+@primary-color-active: @primary-color-60;
+@error-color: @red;
+@error-color-active: @red;
+@error-color-hover: @red;
+@line-height-base: 1.375;
+@highlight-color: @red;
+
+//heading
+@heading-1-size: 42px;
+@heading-2-size: 36px;
+@heading-3-size: 24px;
+@heading-4-size: 20px;
+@heading-5-size: 18px;
+@typography-title-font-weight: @app-font-weight-bold;
+@typography-title-margin-bottom: 12px;
+
+// Border color
+@border-width-base: 1px;
+@border-style-base: solid;
+
+//font
+@font-size-base: @app-font-size-base;
+@font-size-lg: @app-font-size-lg;
+@font-size-sm: @app-font-size-sm;
+@text-color: @black;
+@font-family: 'Montserrat', sans-serif;
+@font-variant-base: normal;
+@font-feature-settings-base: normal;
+@line-height-base: 1.1875;
+
+// button
+@btn-line-height: @app-control-line-height;
+@btn-font-weight: @app-font-weight-bold;
+@btn-border-width: 1px;
+@btn-border-radius-base: @app-border-radius-base;
+@btn-height-base: 36px;
+@btn-disable-color: @gray-50 ;
+@btn-disable-bg: @gray-5;
+@btn-disable-border: transparent;
+
+@btn-primary-color: @white;
+@btn-primary-bg: @primary-color;
+@btn-primary-shadow: @btn-shadow;
+@primary-color-hover: @primary-color-60;
+@primary-color-active: @primary-color-60;
+
+@btn-text-hover-bg: @white;
+
+@btn-default-color: @white;
+@btn-default-bg: @secondary-color;
+@btn-default-border: transparent;
+
+@btn-height-lg: 40px;
+@btn-font-size-lg: @app-font-size-md;
+@btn-border-radius-sm: @btn-border-radius-base;
+
+@btn-height-sm: 24px;
+@btn-font-size-sm: @app-font-size-md;
+@btn-border-radius-sm: @btn-border-radius-base;
+
+@btn-padding-horizontal-base: @app-padding-md - 1px;
+@btn-padding-horizontal-lg: @btn-padding-horizontal-base - 1px;
+@btn-padding-horizontal-sm: @padding-xs - 1px;
+
+//input
+@input-height-base: 32px;
+@input-height-sm: 28px;
+@input-height-lg: 36px;
+@input-padding-horizontal: 12px;
+@input-padding-horizontal-base: @input-padding-horizontal;
+@input-padding-horizontal-sm: 12px;
+@input-padding-horizontal-lg: 12px;
+@input-padding-vertical-base: max(
+  (round(((@input-height-base - @font-size-base * @app-control-line-height) / 2) * 10) / 10) -
+  @border-width-base,
+  3px
+);
+@input-padding-vertical-sm: max(
+  (round(((@input-height-sm - @font-size-base * @app-control-line-height) / 2) * 10) / 10) -
+  @border-width-base,
+  0
+);
+@input-padding-vertical-lg: (
+    ceil(((@input-height-lg - @font-size-lg * @app-control-line-height) / 2) * 10) / 10
+  ) - @border-width-base;
+
+@input-placeholder-color: @gray-60;
+@input-border-color: @gray-10;
+@input-hover-border-color: @secondary-color;
+@input-disabled-bg: @gray-10;
+@input-disabled-color: @gray;
+@input-outline-offset: 0 0;
+@outline-blur-size: 0;
+@outline-width: 0;
+@outline-fade: 25%;
+
+//form
+@label-color: @gray-80;
+@form-item-label-height: 20px;
+@form-vertical-label-padding: 0 0 4px;
+@form-item-margin-bottom: 24px;
+@form-item-trailing-colon: false;
+@form-error-input-bg: @input-bg;
+
+//menu
+@menu-item-padding-horizontal: 16px;
+@menu-item-color: @gray-80;
+@menu-inline-toplevel-item-height: 40px;
+@menu-item-height: @menu-items-line-height;
+@menu-item-group-height: @app-control-line-height;
+@menu-highlight-color: @gray-40;
+@menu-item-active-bg: @gray-5;
+@menu-inline-submenu-bg: @white;
+@menu-item-active-border-width: 0;
+@menu-item-vertical-margin: 0px;
+@menu-item-boundary-margin: @app-padding-sm;
+@menu-item-font-size: @font-size-base;
+@menu-item-padding: 0 @menu-item-padding-horizontal;
+@menu-icon-margin-right: 10px;
+@menu-icon-size: @app-font-size-xl;
+@menu-icon-size-lg: @app-font-size-xl;
+@menu-item-group-title-font-size: @menu-item-font-size;
+
+//badge
+@shadow-color-inverse: none;
+
+//tooltip
+@popover-min-width: 177px;
+@popover-min-height: 32px;
+@tooltip-border-radius: 8px;
+
+//layout
+@layout-header-height: @main-menu-height + @main-menu-margin;
+@layout-header-padding: 0;
+@layout-header-color: @black;
+@layout-header-background: transparent;
+
+//screen sizes
+@screen-xxl: @app-screen-xxl;
+@screen-xl: @app-screen-xl;
+
+//table
+@table-border-radius-base: 0;
+@table-padding-vertical: 14px;
+@table-padding-horizontal: 16px;
+@table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
+@table-padding-horizontal-md: (@table-padding-horizontal / 2);
+@table-padding-vertical-sm: (@table-padding-vertical / 2);
+@table-padding-horizontal-sm: (@table-padding-horizontal / 2);
+@table-font-size: @app-font-size-md;
+@table-header-bg: @gray-10;
+@table-header-sort-bg: @gray-10;
+@table-header-cell-split-color: @gray-30;
+
+//table sorter
+// Legacy: `table-header-sort-active-bg` is used for hover not real active
+@table-header-sort-active-bg: @gray-20;
+@table-fixed-header-sort-active-bg: @gray-20;
+
+//tag
+@tag-border-radius: 20px;
+@tag-font-size: @font-size-sm;
+@tag-line-height: 22px;
+
+//select
+@select-border-color: @gray-5;
+@select-item-selected-font-weight: 400;
+@select-item-selected-bg: @gray-5;
+@select-item-active-bg: @primary-color-5;
+@select-selection-item-bg: @primary-color-5;
+@select-selection-item-border-color: @primary-color-5;
+
+@select-dropdown-font-size: @app-font-size-md;
+@select-dropdown-line-height: @app-control-line-height;
+@select-dropdown-vertical-padding: 6px;
+@select-dropdown-height: 32px;
+@select-dropdown-edge-child-vertical-padding: 0px;
+
+//layout
+@layout-body-background: @gray-5;
+@layout-sider-background: @gray-5;
+
+//tabs
+@tabs-title-font-size: @app-font-size-md;
+@tabs-hover-color: @primary-color;
+@tabs-highlight-color: @primary-color;
+@tabs-horizontal-margin: 0 0 0 @app-padding-lg;
+@tabs-horizontal-margin-rtl: 0 0 0 17px;
+
+//page-header
+@page-header-padding: 16px;
+@page-header-padding-vertical: 12px;
+
+//collapse
+@collapse-header-padding: 25px @app-padding-lg;
+@collapse-content-padding: @app-padding-lg;
+@collapse-header-bg: @white;
+@collapse-content-bg: @white;
+
+//checkbox
+@checkbox-border-radius: @app-border-radius-sm;
+
+//date-picker
+@picker-panel-cell-height: 24px;
+@picker-panel-cell-width: 40px;
+
+//modal
+@modal-header-padding: 24px 24px 8px;
+@modal-body-padding: 0 24px 16px;
+@modal-header-bg: @component-background;
+@modal-header-border-width: 0;
+@modal-header-title-line-height: 28px;
+@modal-header-title-font-size: 20px;
+@modal-header-close-size: 56px;
+@modal-heading-color: @gray-70;
+@modal-close-color: @gray-70;
+@modal-footer-border-color-split: transparent;
+@modal-footer-border-width: 0;
+@modal-confirm-body-padding: 24px;
+@modal-confirm-title-font-size: 20px;
+
+//confirm
+@modal-confirm-title-font-size: @app-font-size-xl;
+
+//checkbox
+@checkbox-size: 20px;
+@checkbox-border-width: 1px;
+@checkbox-border-radius: 5px;
+
+//tree
+@tree-title-height: 20px;
+@tree-directory-selected-color: @text-color;
+@tree-directory-selected-bg: transparent;
+@tree-node-hover-bg: transparent;
+@tree-node-selected-bg: @primary-2;
+
+//radio
+@radio-size: 20px;
+@radio-top: 0;
+@radio-dot-disabled-color: @gray-10;
+@radio-button-bg: transparent;
+
+//switch
+@switch-height: 16px;
+@switch-sm-height: 14px;
+@switch-min-width: 28px;
+@switch-sm-min-width: 22px;
+@switch-disabled-opacity: 1;
+
+//dropdown
+@dropdown-selected-color: @primary-color;
+@dropdown-menu-submenu-disabled-bg: @component-background;
+@dropdown-selected-bg: @item-active-bg;
+
+// notification
+@notification-padding-vertical: 24px;

@@ -1,0 +1,21 @@
+@import '~node_modules/ng-zorro-antd/radio/style/entry.less';
+@import '~src/styles/vars/colors';
+
+@radio-focus-shadow: 0 0 0 2px @primary-color-30;
+@radio-button-focus-shadow: @radio-focus-shadow;
+
+.@{radio-prefix-cls}-wrapper {
+  align-items: center;
+}
+
+.@{radio-prefix-cls}-checked {
+  .@{radio-inner-prefix-cls} {
+    border-color: @gray-30;
+  }
+}
+
+.@{radio-prefix-cls}-disabled {
+  .@{radio-inner-prefix-cls} {
+    border-color: transparent !important;
+  }
+}

@@ -1,0 +1,110 @@
+@import '~node_modules/ng-zorro-antd/input/style/entry.less';
+@import '~src/styles/mixins/focus-shadow';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+.@{input-prefix-cls} {
+  line-height: @app-control-line-height;
+  height: @input-height-base;
+
+  &-lg {
+    height: @input-height-lg;
+  }
+
+  &-sm {
+    height: @input-height-sm;
+  }
+
+  &-group {
+    > .@{input-prefix-cls}:first-child,
+    &-addon:first-child {
+      border-radius: @control-border-radius;
+    }
+  }
+
+  &-prefix,
+  &-suffix {
+    font-size: @app-font-size-lg;
+  }
+
+  &-affix-wrapper {
+    line-height: @app-control-line-height;
+
+    > input.@{ant-prefix}-input {
+      height: auto;
+    }
+
+    &-disabled {
+      border-color: @gray-20;
+
+      &:hover {
+        border-color: @gray-20;
+      }
+
+      .@{input-prefix-cls}-prefix > span > svg > path,
+      .@{input-prefix-cls}-suffix > span > svg > path {
+        fill: @gray;
+      }
+    }
+  }
+
+  &[disabled] {
+    border-color: @gray-20;
+
+    &:hover {
+      border-color: @gray-20;
+    }
+  }
+
+  &-status-error {
+    &:not(.@{input-prefix-cls}-disabled):not(.@{input-prefix-cls}-borderless).@{input-prefix-cls} {
+      &:focus,
+      &-focused {
+        border-color: @primary-color;
+      }
+    }
+  }
+
+  &-textarea-show-count {
+    &::after {
+      padding-top: 4px;
+      color: @gray;
+    }
+
+    &.@{input-prefix-cls}-textarea-in-form-item {
+      &::after {
+        margin-bottom: -20px;
+      }
+    }
+  }
+}
+
+textarea.@{input-prefix-cls} {
+  font-size: @app-font-size-lg;
+  line-height: 1.5;
+  border-color: @gray;
+
+
+  &:hover {
+    border-color: @primary-color;
+  }
+
+  &:focus {
+    border-color: transparent;
+    .focus-shadow(3px, @primary-color-10)
+  }
+
+  &-disabled {
+    resize: none;
+  }
+
+  &-status-error {
+    &:not(.@{input-prefix-cls}-disabled):not(.@{input-prefix-cls}-borderless).@{input-prefix-cls} {
+      &:focus,
+      &-focused {
+        border-color: transparent;
+        .focus-shadow(3px, @primary-color-10)
+      }
+    }
+  }
+}

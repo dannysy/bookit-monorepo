@@ -1,0 +1,44 @@
+version: '3'
+
+tasks:
+  dk-start:
+    desc: Start local test environment in docker
+    cmds:
+      - 'docker network create reservation || true'
+      - 'docker run --name iam-pg --rm --net reservation
+      -e POSTGRES_PASSWORD=postgres
+      -e POSTGRES_DB="iam"
+      -e POSTGRES_USER="postgres"
+      -p 5434:5432
+      -d postgres'
+      - 'sleep 1'
+      - 'docker run --name iam-casdoor --rm --net reservation
+      -e driverName=postgres
+      -e dataSourceName="postgres://postgres:postgres@iam-pg:5432/iam?sslmode=disable"
+      -v ./etc/init_data.json:/init_data.json
+      -p 8000:8000
+      -d casbin/casdoor:latest'
+      - 'docker run --name iam-ldap --rm -p 389:1389 --net reservation
+      -e LDAP_ADMIN_USERNAME=admin
+      -e LDAP_ADMIN_PASSWORD=admin
+      -e LDAP_USERS=dsykulev
+      -e LDAP_PASSWORDS=mypass
+      -e LDAP_ROOT=dc=example,dc=org
+      -e LDAP_ADMIN_DN==cn=admin,dc=example,dc=org
+      -d bitnami/openldap:latest'
+      - 'docker run --name iam-ldap-2 --rm -p 388:1389 --net reservation
+      -e LDAP_ADMIN_USERNAME=admin
+      -e LDAP_ADMIN_PASSWORD=admin
+      -e LDAP_USERS=taliev
+      -e LDAP_PASSWORDS=mypass
+      -e LDAP_ROOT=dc=example,dc=org
+      -e LDAP_ADMIN_DN==cn=admin,dc=example,dc=org
+      -d bitnami/openldap:latest'
+  dk-stop:
+    desc: Stop local test environment
+    cmds:
+      - docker stop iam-pg
+      - docker stop iam-casdoor
+      - docker stop iam-ldap
+      - docker stop iam-ldap-2
+      - docker network rm reservation || true

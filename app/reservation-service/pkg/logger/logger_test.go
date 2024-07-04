@@ -27,7 +27,7 @@ func Test_ShouldGetLoggerFromCtx(t *testing.T) {
 	logger := New(cfg)
 	sb := strings.Builder{}
 	lg := logger.With().Str("method", "POST").Logger().Output(&sb)
-	ctx := context.WithValue(context.Background(), CtxLoggerKey, &lg)
+	ctx := WithCtx(context.Background(), &lg)
 	logger = Gist(ctx)
 	logger.Info().Msg("test")
 	if !assert.Contains(t, sb.String(), "POST") {

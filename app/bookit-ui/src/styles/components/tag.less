@@ -1,0 +1,42 @@
+@import '~node_modules/ng-zorro-antd/tag/style/entry.less';
+@import '~src/styles/vars/colors';
+
+.@{tag-prefix-cls} {
+  &-close-icon {
+    &:hover {
+      color: @text-color;
+    }
+  }
+
+  &-error {
+    .@{tag-prefix-cls}-close-icon {
+      color: @red;
+    }
+  }
+
+  &-default {
+    .@{tag-prefix-cls}-close-icon {
+      color: @text-color;
+    }
+  }
+
+  &-processing {
+    .@{tag-prefix-cls}-close-icon {
+      color: @primary-color;
+    }
+  }
+
+  &-success {
+    background-color: var(--green-5);
+    .@{tag-prefix-cls}-close-icon {
+      color: @green;
+    }
+  }
+
+  &-warning {
+    background-color: var(--yellow-5);
+    .@{tag-prefix-cls}-close-icon {
+      color: @yellow;
+    }
+  }
+}

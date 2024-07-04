@@ -1,0 +1,21 @@
+@import '~node_modules/ng-zorro-antd/tree-select/style/entry.less';
+@import '~src/styles/components/mixins/tree';
+@import '~src/styles/components/mixins/checkbox';
+
+.checkboxFn(@checkbox-prefix-cls: ~'@{select-tree-prefix-cls}-checkbox');
+
+@select-tree-treenode: ~'@{select-tree-prefix-cls}-treenode';
+
+.@{select-tree-prefix-cls} {
+  padding: 10px;
+
+  .treeFn(@select-tree-prefix-cls);
+
+  .@{select-tree-treenode} {
+    &-disabled {
+      .@{tree-prefix-cls}-title:hover {
+        color: inherit;
+      }
+    }
+  }
+}

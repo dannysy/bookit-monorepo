@@ -1,0 +1,73 @@
+@import '~node_modules/ng-zorro-antd/pagination/style/entry.less';
+@import '~src/styles/vars/colors';
+@import '~src/styles/vars/sizes';
+
+.@{pagination-prefix-cls} {
+  font-size: @app-font-size-md;
+
+  &-item {
+    border: 1px solid @gray-5;
+    border-radius: @pagination-border-radius;
+
+    > button {
+      border: none;
+    }
+
+    &-active {
+      background-color: @primary-color;
+
+      a {
+        color: @white;
+      }
+
+      &:hover a {
+        color: @white;
+      }
+    }
+    }
+
+  &-prev,
+  &-next,
+  &-jump-prev,
+  &-jump-next {
+    border: 1px solid @gray-5;
+    border-radius: @pagination-border-radius;
+    background-color: @white;
+
+    &:hover {
+      border-color: @primary-color;
+
+      a {
+        & > span > svg > path {
+          fill: @primary-color;
+        }
+      }
+    }
+  }
+
+  &-disabled {
+    &,
+    &:hover {
+      border-color: @border-color-base;
+      color: @disabled-color;
+      cursor: not-allowed;
+
+      a {
+        cursor: not-allowed;
+
+        & > span > svg > path {
+          fill: @disabled-color;
+        }
+      }
+    }
+
+    &:focus-visible {
+      cursor: not-allowed;
+      .@{pagination-prefix-cls}-item-link {
+        color: @disabled-color;
+        border-color: @border-color-base;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
