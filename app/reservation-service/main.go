@@ -20,7 +20,7 @@ import (
 //
 //	@securityDefinitions.apikey	AccessToken
 //	@in							header
-//	@name						authorization
+//	@name						Authorization
 func main() {
 	cfg := config.New()
 	log := logger.New(cfg.Logger)

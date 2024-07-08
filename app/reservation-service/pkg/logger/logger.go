@@ -2,12 +2,12 @@ package logger
 
 import (
 	"context"
-	"fmt"
 	"os"
 	"time"
 
 	"github.com/rs/zerolog"
-	"github.com/ztrue/tracerr"
+
+	"bookit/pkg/errors"
 )
 
 type ctxLogger struct{}
@@ -40,7 +40,7 @@ func WithCtx(ctx context.Context, lg *zerolog.Logger) context.Context {
 func New(conf Config) *zerolog.Logger {
 	level, err := zerolog.ParseLevel(conf.Level)
 	if err != nil {
-		panic(tracerr.Wrap(fmt.Errorf("failed to parse level: %w", err)))
+		panic(errors.Wrap(err, errors.WithMsg("failed to parse level")))
 	}
 	logger := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: time.RFC3339}).
 		Level(level).With().Timestamp().Caller().Logger()

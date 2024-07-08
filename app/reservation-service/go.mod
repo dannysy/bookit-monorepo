@@ -1,9 +1,10 @@
 module bookit
 
-go 1.22
+go 1.22.4
 
 require (
 	entgo.io/ent v0.13.1
+	github.com/akutz/lem v0.1.1
 	github.com/casdoor/casdoor-go-sdk v0.46.0
 	github.com/gofiber/fiber/v3 v3.0.0-beta.2
 	github.com/gofiber/utils/v2 v2.0.0-beta.4
@@ -13,7 +14,6 @@ require (
 	github.com/rs/zerolog v1.33.0
 	github.com/stretchr/testify v1.9.0
 	github.com/swaggo/swag v1.16.3
-	github.com/ztrue/tracerr v0.4.0
 )
 
 require (
@@ -64,6 +64,7 @@ require (
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
+	gopkg.in/resty.v1 v1.12.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

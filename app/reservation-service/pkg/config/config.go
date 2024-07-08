@@ -1,13 +1,11 @@
 package config
 
 import (
-	"fmt"
-
 	"github.com/gookit/config/v2"
 	"github.com/gookit/config/v2/yaml"
-	"github.com/ztrue/tracerr"
 
 	"bookit/pkg/database"
+	"bookit/pkg/errors"
 	"bookit/pkg/iam"
 	"bookit/pkg/logger"
 	"bookit/pkg/server"
@@ -34,25 +32,25 @@ type App struct {
 
 func Gist() *Config {
 	if gist == nil {
-		panic(tracerr.New("config not initialized"))
+		panic(errors.New("config not initialized"))
 	}
 	return gist
 }
 func New() *Config {
 	gist = &Config{}
-	conf := config.NewWithOptions("cfg", config.ParseEnv)
+	conf := config.NewWithOptions("cfg", config.ParseEnv, config.ParseTime)
 	conf.AddDriver(yaml.Driver)
 	err := conf.LoadFlags(flags)
 	if err != nil {
-		panic(tracerr.Wrap(fmt.Errorf("failed to load flags: %w", err)))
+		panic(errors.Wrap(err, errors.WithMsg("failed to load flags")))
 	}
 	err = conf.LoadFiles(conf.String("config"))
 	if err != nil {
-		panic(tracerr.Wrap(fmt.Errorf("failed to load config: %w", err)))
+		panic(errors.Wrap(err, errors.WithMsg("failed to load config")))
 	}
 	err = conf.Decode(&gist)
 	if err != nil {
-		panic(tracerr.Wrap(fmt.Errorf("failed to decode config: %w", err)))
+		panic(errors.Wrap(err, errors.WithMsg("failed to decode config")))
 	}
 	return gist
 }

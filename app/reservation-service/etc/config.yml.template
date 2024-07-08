@@ -17,6 +17,8 @@ Psql:
 Server:
   Host: 'localhost'
   Port: 8084
+  ReadTimeout: 10s
+  WriteTimeout: 10s
 Logger:
   Level: 'trace'
   Format: 'json'

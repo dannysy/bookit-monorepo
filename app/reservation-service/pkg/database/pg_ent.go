@@ -3,10 +3,9 @@ package database
 import (
 	"context"
 
-	"github.com/ztrue/tracerr"
-
 	"bookit/internal/repo/ent"
 	"bookit/internal/repo/ent/migrate"
+	"bookit/pkg/errors"
 	"bookit/pkg/logger"
 )
 
@@ -24,7 +23,7 @@ type PgEnt struct {
 
 func Gist() *ent.Client {
 	if gist == nil {
-		panic(tracerr.New("database connection not initialized"))
+		panic(errors.New("database connection not initialized"))
 	}
 	return gist
 }
@@ -33,7 +32,7 @@ func NewPgEnt(cfg PgEntConfig) *PgEnt {
 	ctx := context.Background()
 	client, err := ent.Open("postgres", cfg.URL)
 	if err != nil {
-		logger.Gist(ctx).Fatal().Err(tracerr.Wrap(err)).Msg("failed opening connection to postgres")
+		logger.Gist(ctx).Fatal().Err(errors.Wrap(err)).Msg("failed opening connection to postgres")
 		return nil
 	}
 	if err = client.Schema.Create(
@@ -43,7 +42,7 @@ func NewPgEnt(cfg PgEntConfig) *PgEnt {
 		migrate.WithGlobalUniqueID(true),
 		migrate.WithForeignKeys(true),
 	); err != nil {
-		logger.Gist(ctx).Fatal().Err(tracerr.Wrap(err)).Msg("failed creating schema resources")
+		logger.Gist(ctx).Fatal().Err(errors.Wrap(err)).Msg("failed creating schema resources")
 	}
 	gist = client
 	return &PgEnt{

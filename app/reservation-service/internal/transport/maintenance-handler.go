@@ -4,6 +4,7 @@ import (
 	"github.com/gofiber/fiber/v3"
 
 	"bookit/pkg/config"
+	"bookit/pkg/errors"
 )
 
 // Version	Получить версию
@@ -41,6 +42,7 @@ func Health(ctx fiber.Ctx) error {
 //	@summary	Проверка panic-recovery
 //	@tags		app
 //	@id			panic
+//	@security	AccessToken
 //	@success	200
 //	@failure	400
 //	@failure	401
@@ -49,4 +51,16 @@ func Health(ctx fiber.Ctx) error {
 //	@router		/panic [get]
 func Panic(_ fiber.Ctx) error {
 	panic("panic")
+}
+
+// Error	Проверка обработчика ошибок
+//
+//	@summary	Проверка обработчика ошибок
+//	@tags		app
+//	@id			error
+//	@security	AccessToken
+//	@failure	409
+//	@router		/error [get]
+func Error(_ fiber.Ctx) error {
+	return errors.New("custom error", errors.WithHttpStatus(fiber.StatusConflict))
 }

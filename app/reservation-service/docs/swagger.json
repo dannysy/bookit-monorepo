@@ -11,6 +11,25 @@
     "host": "localhost:8084",
     "basePath": "/v1",
     "paths": {
+        "/error": {
+            "get": {
+                "security": [
+                    {
+                        "AccessToken": []
+                    }
+                ],
+                "tags": [
+                    "app"
+                ],
+                "summary": "Проверка обработчика ошибок",
+                "operationId": "error",
+                "responses": {
+                    "409": {
+                        "description": "Conflict"
+                    }
+                }
+            }
+        },
         "/healthz": {
             "get": {
                 "tags": [
@@ -39,6 +58,11 @@
         },
         "/panic": {
             "get": {
+                "security": [
+                    {
+                        "AccessToken": []
+                    }
+                ],
                 "tags": [
                     "app"
                 ],
@@ -93,7 +117,7 @@
     "securityDefinitions": {
         "AccessToken": {
             "type": "apiKey",
-            "name": "authorization",
+            "name": "Authorization",
             "in": "header"
         }
     }

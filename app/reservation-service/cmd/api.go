@@ -21,6 +21,9 @@ func NewApi(config *config.Config) {
 	// init http server & routes
 	srv := server.NewFiberServer(config.Server)
 	srv.Use(
+		server.Logger(),
+		server.Error(),
+		transport.Auth(),
 		cors.New(
 			cors.Config{
 				AllowOrigins: "*",
@@ -28,7 +31,6 @@ func NewApi(config *config.Config) {
 				AllowMethods: "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS",
 			}),
 		server.Recover(),
-		server.Logger(),
 		requestid.New(requestid.Config{
 			Header:    "X-Request-Id",
 			Generator: utils.UUIDv4,
@@ -39,6 +41,7 @@ func NewApi(config *config.Config) {
 	router.Get("/version", transport.Version)
 	router.Get("/healthz", transport.Health)
 	router.Get("/panic", transport.Panic)
+	router.Get("/error", transport.Error)
 	router.Get("/signin", transport.Signin)
 	router.Get("/user", transport.User)
 	_ = iam.NewCasdoor(config.Iam)

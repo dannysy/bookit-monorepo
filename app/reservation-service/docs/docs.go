@@ -16,6 +16,25 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/error": {
+            "get": {
+                "security": [
+                    {
+                        "AccessToken": []
+                    }
+                ],
+                "tags": [
+                    "app"
+                ],
+                "summary": "Проверка обработчика ошибок",
+                "operationId": "error",
+                "responses": {
+                    "409": {
+                        "description": "Conflict"
+                    }
+                }
+            }
+        },
         "/healthz": {
             "get": {
                 "tags": [
@@ -44,6 +63,11 @@ const docTemplate = `{
         },
         "/panic": {
             "get": {
+                "security": [
+                    {
+                        "AccessToken": []
+                    }
+                ],
                 "tags": [
                     "app"
                 ],
@@ -98,7 +122,7 @@ const docTemplate = `{
     "securityDefinitions": {
         "AccessToken": {
             "type": "apiKey",
-            "name": "authorization",
+            "name": "Authorization",
             "in": "header"
         }
     }

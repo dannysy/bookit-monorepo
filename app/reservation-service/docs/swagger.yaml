@@ -5,6 +5,17 @@ info:
   title: Reservation REST API
   version: "1.0"
 paths:
+  /error:
+    get:
+      operationId: error
+      responses:
+        "409":
+          description: Conflict
+      security:
+      - AccessToken: []
+      summary: Проверка обработчика ошибок
+      tags:
+      - app
   /healthz:
     get:
       operationId: health
@@ -36,6 +47,8 @@ paths:
           description: Forbidden
         "500":
           description: Internal Server Error
+      security:
+      - AccessToken: []
       summary: Проверка panic-recovery
       tags:
       - app
@@ -61,6 +74,6 @@ schemes:
 securityDefinitions:
   AccessToken:
     in: header
-    name: authorization
+    name: Authorization
     type: apiKey
 swagger: "2.0"

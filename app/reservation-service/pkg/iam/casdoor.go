@@ -2,7 +2,8 @@ package iam
 
 import (
 	"github.com/casdoor/casdoor-go-sdk/casdoorsdk"
-	"github.com/ztrue/tracerr"
+
+	"bookit/pkg/errors"
 )
 
 var gist *casdoorsdk.Client
@@ -23,7 +24,7 @@ func NewCasdoor(cfg CasdoorConfig) *casdoorsdk.Client {
 
 func Gist() *casdoorsdk.Client {
 	if gist == nil {
-		panic(tracerr.New("casdoor client not initialized"))
+		panic(errors.New("casdoor client not initialized"))
 	}
 	return gist
 }
