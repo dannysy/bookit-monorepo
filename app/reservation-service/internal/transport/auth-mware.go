@@ -1,7 +1,6 @@
 package transport
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/gofiber/fiber/v3"
@@ -10,7 +9,6 @@ import (
 	"bookit/pkg/config"
 	"bookit/pkg/errors"
 	"bookit/pkg/iam"
-	"bookit/pkg/logger"
 )
 
 var noAuthPaths = map[string]struct{}{
@@ -53,7 +51,6 @@ func Auth() fiber.Handler {
 }
 
 func getAccessToken(ctx fiber.Ctx) string {
-	logger.Gist(ctx.UserContext()).Debug().Msg(fmt.Sprintf("Authorization: %s", ctx.Get("Authorization")))
 	return strings.Replace(ctx.Get("Authorization"), "Bearer ", "", 1)
 }
 
